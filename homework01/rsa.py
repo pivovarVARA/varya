@@ -4,35 +4,35 @@ import typing as tp
 
 def is_prime(n: int) -> bool:
         d = 2
-    if n == 1:
-        return False
-    while (n%d != 0) and (n >= d*d):
-        d += 1
-    return d*d > n 
+        if n == 1:
+                return False
+        while (n%d != 0) and (n >= d*d):
+                d += 1
+        return d*d > n 
 
 
 def gcd(a: int, b: int) -> int:
-   while a!=0 and b!=0:
-        if a > b:
-            a%=b
-        else:
-            b%=a
-    d=a+b
-    return d 
+        while a!=0 and b!=0:
+                if a > b:
+                        a%=b
+                else:
+                        b%=a
+        d=a+b
+        return d 
     
 
 
 def multiplicative_inverse(e: int, phi: int) -> int:
-    d = 0
-    if phi != 1:
-        multiple = 1
-        while d == 0:
-            if (multiple) % e == 0:
-                d = multiple / e
-                break
-            multiple += phi
-            d=int(d)
-    return d
+        d = 0
+        if phi != 1:
+                multiple = 1
+                while d == 0:
+                        if (multiple) % e == 0:
+                                d = multiple / e
+                                break
+                        multiple += phi
+                        d=int(d)
+        return d
     
 
 
