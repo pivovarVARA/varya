@@ -8,33 +8,33 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     while len(n) < len(plaintext):
             n += n
     for i in range(len(plaintext)):
-     l = 0
-     for j in range(26):
-      if plaintext[i] == m[j]:
-       l = 1
-     for j in range(26):
-      if plaintext[i] == z[j]:
-       l = 1
-     if l == 0:
-      ciphertext += plaintext[i]
-     else:
-        index_key = m.index(n[i])
-        if plaintext[i].islower():
-            index = m.index(plaintext[i])
-            if index + index_key < 26:
-                index += index_key
-                ciphertext += mal[index]
-            else:
-                index = index + index_key - 26
-                ciphertext += m[index]
+        l = 0
+        for j in range(26):
+            if plaintext[i] == m[j]:
+                l = 1
+        for j in range(26):
+            if plaintext[i] == z[j]:
+                l = 1
+        if l == 0:
+            ciphertext += plaintext[i]
         else:
-            index = z.index(plaintext[i])
-            if index + index_key < 26:
-                index += index_key
-                ciphertext += z[index]
+            index_key = m.index(n[i])
+            if plaintext[i].islower():
+                index = m.index(plaintext[i])
+                if index + index_key < 26:
+                    index += index_key
+                    ciphertext += mal[index]
+                else:
+                    index = index + index_key - 26
+                    ciphertext += m[index]
             else:
-                index = index + index_key - 26
-                ciphertext += z[index]
+                index = z.index(plaintext[i])
+                if index + index_key < 26:
+                    index += index_key
+                    ciphertext += z[index]
+                else:
+                    index = index + index_key - 26
+                    ciphertext += z[index]
         
     return ciphertext
 
@@ -49,31 +49,31 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     while len(n) < len(ciphertext):
             n += n
     for i in range(len(ciphertext)):
-     l = 0
-     for j in range(26):
-      if ciphertext[i] == m[j]:
-       l = 1
-     for j in range(26):
-      if ciphertext[i] == z[j]:
-       l = 1
-     if l == 0:
-      plaintext += ciphertext[i]
-     else:
-        index_key = m.index(n[i])
-        if ciphertext[i].islower():
-            index = m.index(ciphertext[i])
-            if index - index_key >= 0:
-                index -= index_key
-                plaintext += m[index]
-            else:
-                index = index - index_key + 26
-                plaintext += m[index]
+        l = 0
+        for j in range(26):
+            if ciphertext[i] == m[j]:
+                l = 1
+        for j in range(26):
+            if ciphertext[i] == z[j]:
+                l = 1
+        if l == 0:
+            plaintext += ciphertext[i]
         else:
-            index = z.index(ciphertext[i])
-            if index + index_key >= 0:
-                index -= index_key
-                plaintext += z[index]
+            index_key = m.index(n[i])
+            if ciphertext[i].islower():
+                index = m.index(ciphertext[i])
+                if index - index_key >= 0:
+                    index -= index_key
+                    plaintext += m[index]
+                else:
+                    index = index - index_key + 26
+                    plaintext += m[index]
             else:
-                index = index - index_key + 26
-                plaintext += z[index]
+                index = z.index(ciphertext[i])
+                if index + index_key >= 0:
+                    index -= index_key
+                    plaintext += z[index]
+                else:
+                    index = index - index_key + 26
+                    plaintext += z[index]
     return plaintext
