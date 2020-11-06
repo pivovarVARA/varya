@@ -47,10 +47,10 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
  for i in range(len(ciphertext)):
   l = 0
   for j in range(26):
-   if palintext[i] == m[j]:
+   if plaintext[i] == m[j]:
     l = 1
   for j in range(26):
-   if palintext[i] == z[j]:
+   if plaintext[i] == z[j]:
     l = 1
   if l == 0:
    ciphertext += plaintext[i]
@@ -61,7 +61,7 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
      index -= shift
      plaintext += m[index]
     else:
-     index = index - shift+26
+     index = index - shift + 26
      plaintext += m[index]      
    else:
     index = z.index(ciphertext[i])
