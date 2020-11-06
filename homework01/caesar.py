@@ -7,11 +7,12 @@ def encrypt_caesar(plaintext: str, shift: int = 3) -> str:
   shift -= 26
  for i in range(len(plaintext)):
   l = 0
+  buk = plaintext[i]
   for j in range(26):
-   if plaintext[i] == m[j]:
+   if buk == m[j]:
     l = 1
-  for j in range(26):
-   if plaintext[i] == z[j]:
+  for k in range(26):
+   if buk == z[k]:
     l = 1
   if l == 0:
    ciphertext += plaintext[i]
@@ -47,13 +48,13 @@ def decrypt_caesar(ciphertext: str, shift: int = 3) -> str:
  for i in range(len(ciphertext)):
   l = 0
   for j in range(26):
-   if plaintext[i] == m[j]:
+   if ciphertext[i] == m[j]:
     l = 1
   for j in range(26):
-   if plaintext[i] == z[j]:
+   if ciphertext[i] == z[j]:
     l = 1
   if l == 0:
-   ciphertext += plaintext[i]
+   plaintext += ciphertext[i]
   else:
    if ciphertext[i].islower():
     index = m.index(ciphertext[i])
