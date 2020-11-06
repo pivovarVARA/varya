@@ -23,7 +23,7 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
                 index = m.index(plaintext[i])
                 if index + index_key < 26:
                     index += index_key
-                    ciphertext += mal[index]
+                    ciphertext += m[index]
                 else:
                     index = index + index_key - 26
                     ciphertext += m[index]
