@@ -199,7 +199,7 @@ def generate_sudoku(N: int) -> tp.List[tp.List[str]]:
             if grid[row][column] != ".":
                 grid[row][column] = "."
                 N -= 1
-    return grid  # type: ignore
+    return grid  
 
 
 if __name__ == "__main__":
